@@ -2,6 +2,7 @@ package git.lab.equipment.measurement;
 
 import java.util.Objects;
 
+import git.lab.equipment.measurement.AbstractMeasurement.State;
 import git.lab.equipment.sensor.Clock;
 import git.lab.equipment.sensor.ClockFactory;
 
@@ -36,6 +37,10 @@ public class TimeMeasurement extends AbstractMeasurement {
 	 * @return elapsed time in ns
 	 */
 	public long getElapsedTime() {
+		if (getState() != State.STOPPED) {
+			throw new IllegalStateException("State must be 'STOPPED'");			
+		}
+		
 		return elapsedTime;
 	}
 }

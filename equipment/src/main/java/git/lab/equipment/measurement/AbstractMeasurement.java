@@ -25,6 +25,7 @@ public abstract class AbstractMeasurement implements Measurement {
 		}
 		
 		startMeasurement();
+		state=State.RUNNING;
 	}
 	
 	@Override
@@ -34,6 +35,7 @@ public abstract class AbstractMeasurement implements Measurement {
 		}
 		
 		stopMeasurement();
+		state=State.STOPPED;
 	}
 	
 }

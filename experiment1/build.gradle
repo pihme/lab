@@ -1,11 +1,5 @@
-apply plugin: 'java'
-apply plugin: 'eclipse'
-
-
-repositories {
-    mavenCentral()
-}
-
 dependencies {
+	compile project(':equipment')
+	
 	compile 'org.magicwerk:brownies-collections:0.9.11'
 }
