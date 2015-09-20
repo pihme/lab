@@ -13,6 +13,13 @@ subprojects {
         
 }
 
+javadoc {
+     source subprojects.collect {project -> project.sourceSets.main.allJava }
+     destinationDir = new File(buildDir, 'docs')
+     // Might need a classpath
+     classpath = files(subprojects.collect {project -> project.sourceSets.main.compileClasspath})
+} 
+
 task wrapper(type: Wrapper) {
     gradleVersion = '2.7' 
 }
